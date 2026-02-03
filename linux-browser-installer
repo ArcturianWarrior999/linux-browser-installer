@@ -5,7 +5,7 @@ browser_list=$(cat << END
 chrome:/opt/google/chrome/chrome
 vivaldi:/opt/vivaldi/vivaldi
 brave:/opt/brave.com/brave/brave
-opera:/usr/lib/x86_64-linux-gnu/opera/opera
+opera:/usr/lib/x86_64-linux-gnu/opera-stable/opera
 edge:/opt/microsoft/msedge/microsoft-edge
 END
 )
