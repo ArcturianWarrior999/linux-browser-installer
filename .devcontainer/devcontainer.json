@@ -1,0 +1,50 @@
+{
+  "name": "Arcturian Systems Development",
+  "image": "mcr.microsoft.com/devcontainers/universal:latest",
+  "features": {
+    "ghcr.io/devcontainers/features/node:latest": {},
+    "ghcr.io/devcontainers/features/python:3.11": {},
+    "ghcr.io/devcontainers/features/github-cli:latest": {}
+  },
+  "remoteEnv": {
+    "ARCTURIAN_API_URL": "${localEnv:ARCTURIAN_API_URL}",
+    "MONETIZATION_API_KEY": "${localEnv:MONETIZATION_API_KEY}",
+    "SECURITY_AUDIT_TOKEN": "${localEnv:SECURITY_AUDIT_TOKEN}"
+  },
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "forwardPorts": [3000, 8080, 9000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Dashboard",
+      "onAutoForward": "notify"
+    },
+    "8080": {
+      "label": "API Server",
+      "onAutoForward": "notify"
+    },
+    "9000": {
+      "label": "Test Runner",
+      "onAutoForward": "notify"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-typescript-next",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "sonarsource.sonarlint-vscode",
+        "ms-vscode.makefile-tools",
+        "charliermarsh.ruff"
+      ],
+      "settings": {
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.formatOnSave": true
+        }
+      }
+    }
+  }
+}
